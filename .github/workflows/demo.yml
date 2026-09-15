@@ -1,0 +1,24 @@
+name : Manual tests
+
+on :
+  workflow_dispatch: 
+    inputs:
+      number:
+        description: number in input
+        required: true
+        type: number
+        
+
+jobs:
+  RunOnlyIfBiggerThanseven: 
+    runs-on: ubuntu-latest
+    if: inputs.number >= 7
+    
+    steps:
+      - name : show the number
+        run : echo "the number is ${{inputs.number}}"
+    
+    
+
+    
+    
