@@ -7,16 +7,31 @@ on :
         description: number in input
         required: true
         type: number
+env :
+  name : wafae
+  surname : fifette
+    
         
 
 jobs:
   RunOnlyIfBiggerThanseven: 
     runs-on: ubuntu-latest
     if: inputs.number >= 7
+    env:
+        colour : black
+        shape: circle
     
     steps:
       - name : show the number
         run : echo "the number is ${{inputs.number}}"
+
+      - name : variables
+        env :
+          dotter : lina
+          sons : majdKamil
+        run : echo "${{toJson(env)}}"
+
+       
     
     
 
